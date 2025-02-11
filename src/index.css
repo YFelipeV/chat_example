@@ -1,0 +1,364 @@
+*{
+  font-family: sans-serif;
+}
+
+
+
+/*
+#################### CHAT BOOT ##################################
+*/
+
+.chat-toogle-media {
+  width: 100px;
+  height: 35px;
+  position: fixed;
+  padding: 10px;
+  right: 10px;
+  bottom: 0px;
+  background-color: var(--bg-chatboot);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  user-select: none;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+  z-index: 1000;
+}
+
+.chat-toogle-media:hover {
+  background-color: var(--bg-chatboot);
+}
+
+.chat-toogle-content {
+  z-index: 1000;
+  width: 60%;
+  height: 87%;
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  background-color: white;
+  user-select: none;
+}
+
+.chat-toogle-media>i {
+  color: white;
+  font-size: 1.3rem;
+}
+
+
+.chat-boot-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  border-radius: 2% 2% 0% 2%;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.chat-header {
+  background-color: var(--bg-chatboot);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header .title-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.chat-header .icon-header {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.messages-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  max-width: 70%;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  word-wrap: break-word;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  user-select: text;
+}
+
+.message-content-wrapper {
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-chatboot) #f0f0f0;
+}
+
+.message-content-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.message-content-wrapper::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 3px;
+}
+
+.message-content-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--bg-chatboot);
+  border-radius: 3px;
+}
+
+.message-content {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  display: inline-block;
+  min-width: 100%;
+}
+
+.messages h1,
+.messages h2,
+.messages h3,
+.messages h4,
+.messages h5,
+.messages h6 {
+  font-size: 1rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.message-content h1,
+.message-content h2,
+.message-content h3,
+.message-content h4,
+.message-content h5,
+.message-content h6 {
+  font-size: 1rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.user-message {
+  text-align: end;
+  align-self: flex-end;
+  background-color: var(--bg-chatboot);
+  color: white;
+}
+
+.bot-message {
+  text-align: start;
+  align-self: flex-start;
+  background-color: white;
+  color: #333;
+}
+
+.message-content p {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.message-content table {
+  margin: 10px 0 !important;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: fit-content;
+  border: 1px solid #ddd;
+  background-color: white;
+}
+
+.message-content th,
+.message-content td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.message-content th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.user-message .message-content table {
+  color: #333;
+  background-color: white;
+}
+
+.message-input {
+  padding: 1rem;
+  background-color: white;
+  display: flex;
+  border-top: 1px solid #e0e0e0;
+}
+
+.message-input-field {
+  flex-grow: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.message-input-field:focus {
+  border-color: var(--bg-chatboot);
+}
+
+.send-button {
+  background-color: var(--bg-chatboot);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+  background-color: var(--bg-chatboot);
+}
+
+.send-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  margin: 0 2px;
+  background-color: #FFAE00;
+  border-radius: 50%;
+  display: inline-block;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+
+  0%,
+  80%,
+  100% {
+      transform: scale(0);
+  }
+
+  40% {
+      transform: scale(1);
+  }
+}
+
+.frequent-questions {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.frequent-questions h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #1b1b1b;
+  font-weight: bold;
+}
+
+.frequent-questions ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.frequent-questions li {
+  border-radius: 17px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.frequent-questions li:hover {
+  background-color: var(--bg-chatboot);
+  color: white;
+}
+
+
+/* Loading */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.loading-text {
+  color: #666;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--bg-chatboot);
+  animation: bounce 0.5s ease-in-out infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+      transform: translateY(0);
+      opacity: 0.3;
+  }
+
+  50% {
+      transform: translateY(-10px);
+      opacity: 1;
+  }
+}
