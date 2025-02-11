@@ -11,8 +11,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "src/main.jsx"),
-      name: "chat-widget",
+      name: "chatWidget",
       fileName: (format) => `chat-widget.${format}.js`,
+      formats:["umd"]
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
