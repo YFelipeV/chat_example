@@ -1,35 +1,27 @@
 import { defineConfig } from "vite";
-import {resolve} from 'path'
 import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 
-
-
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  mode:"production",
   build: {
     lib: {
-      entry: resolve(__dirname, "src/main.jsx"),
-      name: "chatWidget",
+      entry: resolve(__dirname, "src/main.jsx"), // 📌 Asegurar la entrada correcta
+      name: "ChatWidget", // 📌 Nombre global para el UMD
       fileName: (format) => `chat-widget.${format}.js`,
-      formats:["umd"]
+      formats: ["umd"], // 📌 Asegurar que se genera UMD
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
+      external: ["react", "react-dom", "react/jsx-runtime"], // 📌 No incluir React en el bundle
       output: {
+        format: "umd",
         globals: {
           react: "React",
-          "react-dom": "ReactDom",
-          "react/jsx-runtime": "react/jsx-runtime"
-        }
+          "react-dom": "ReactDOM",
+          "react/jsx-runtime": "reactJsxRuntime",
+        },
+        intro: `if (typeof process === "undefined") { var process = { env: { NODE_ENV: "production" } }; }`,
       },
-      
-      intro: 'if (typeof process === "undefined") { var process = { env: { NODE_ENV: "production" } }; }',
-
-      
     },
-
-    
-  }
+  },
 });
