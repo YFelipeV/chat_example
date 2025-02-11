@@ -14,13 +14,15 @@ export default defineConfig({
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"], // 📌 No incluir React en el bundle
       output: {
-        format: "umd",
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
-          "react/jsx-runtime": "jsxRuntime"
+          "react/jsx-runtime": "jsxRuntime",
         },
-        intro: `if (typeof process === "undefined") { var process = { env: { NODE_ENV: "production" } }; }`,
+        intro: `
+          if (typeof process === "undefined") { var process = { env: { NODE_ENV: "production" } }; }
+          if (typeof jsxRuntime === "undefined") { var jsxRuntime = React; }
+        `,
       },
     },
   },
