@@ -18,7 +18,7 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
-          "react/jsx-runtime": "reactJsxRuntime",
+          "react/jsx-runtime": "jsxRuntime"
         },
         intro: `if (typeof process === "undefined") { var process = { env: { NODE_ENV: "production" } }; }`,
       },
