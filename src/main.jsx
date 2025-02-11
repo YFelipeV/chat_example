@@ -9,12 +9,12 @@ export { ChatBot };
 
 // 📌 Asegurar que esté disponible en `window` para ser usado con `<script>`
 if (typeof window !== "undefined") {
-    window.ChatWidget = (containerId) => {
+    window.ChatBot = (containerId) => {
       const container = document.getElementById(containerId);
       if (!container) {
         console.error(`No se encontró el contenedor con ID: ${containerId}`);
         return;
       }
-      ReactDOM.createRoot(container).render(<ChatWidget />);
+      ReactDOM.createRoot(container).render(<ChatBot />);
     };
   }
