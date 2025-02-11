@@ -32,8 +32,6 @@ export default defineConfig({
           "react/jsx-runtime": "react/jsx-runtime"
         }
       },
-      format: 'umd',
-      name: 'ChatWidget',
       intro: 'if (typeof process === "undefined") { var process = { env: { NODE_ENV: "production" } }; }',
 
       
