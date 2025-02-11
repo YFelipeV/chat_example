@@ -1,20 +1,32 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ChatBot from "./components/chatbot/ChatBot";
 
-// Exportamos el componente
+// Exportar el componente
 export { ChatBot };
 
-// 📌 Asegurar que esté disponible en `window` para ser usado con `<script>`
-if (typeof window !== "undefined") {
-    window.ChatBot = function (containerId)  {
-      const container = document.getElementById(containerId);
-      if (!container) {
-        console.error(`No se encontró el contenedor con ID: ${containerId}`);
-        return;
-      }
-      ReactDOM.createRoot(container).render(<ChatBot />);
-    };
+// Función de inicialización para uso global
+const initChatBot = (containerId) => {
+  const container = document.getElementById(containerId);
+  if (!container) {
+    console.error(`No se encontró el contenedor con ID: ${containerId}`);
+    return;
   }
+  
+  try {
+    const root = ReactDOM.createRoot(container);
+    root.render(React.createElement(ChatBot));
+    return root;
+  } catch (error) {
+    console.error('Error al inicializar ChatBot:', error);
+  }
+};
+
+// Exponer la función de inicialización globalmente
+if (typeof window !== "undefined") {
+  window.ChatBot = initChatBot;
+}
+
+export default initChatBot;
