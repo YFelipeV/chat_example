@@ -3,7 +3,7 @@ import cormini from '../../assets/images/img/cormini.png'
 import Frequent from './components/Frequent';
 import Message from './components/Message';
 
-export const  ChatBot=()=> {
+export default function  ChatBot() {
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState("");
     const [isTyping, setIsTyping] = useState(false);
@@ -107,6 +107,8 @@ export const  ChatBot=()=> {
         sendMessage(question);
     };
     return (
+        <div className='chat-toogle-content'>
+
         <div className="chat-boot-container">
         <div className="chat-header">
             <div>
@@ -165,5 +167,7 @@ export const  ChatBot=()=> {
             </button>
         </form>
     </div>
+    </div>
+
     )
 }
